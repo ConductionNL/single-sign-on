@@ -33,7 +33,7 @@ p {
 }
 
 a:link{
-	color: #ed78a6;
+	color: #2A5587;
 	text-decoration: none;
 }
 
@@ -43,7 +43,7 @@ a:hover{
 }
 
 a:visited{
-	color: #ed78a6;
+	color: #2A5587;
 	text-decoration: none;
 }
 
@@ -92,7 +92,7 @@ GENERAL STYLES
 }
 
 .background-1 {
-	background-color: #4376FC;
+	background-color: #3669A5;
 }
 
 .background-with-image-1 {
@@ -147,7 +147,7 @@ GENERAL STYLES
 }
 
 .color-1 {
-	color: #ed78a6;
+	color: #2A5587;
 }
 
 .color-2 {
@@ -189,7 +189,7 @@ GENERAL STYLES
 HEADER AND MENU STYLES
 ************/
 .header {
-	background: #4376FC url(/images/base-header-overlay.png) repeat top left;
+	background: #CC0000 url(/images/base-header-overlay.png) repeat top left;
 	color: #fff;
 	width: 100%;
 	padding: 0;
@@ -204,7 +204,7 @@ HEADER AND MENU STYLES
 
 .dropdown-toggle, .open>.dropdown-toggle.btn-default{
 	background: none;
-	border: 1px solid #ed78a6;
+	border: 1px solid #2A5587;
 }
 
 
@@ -560,6 +560,14 @@ PORTFOLIO STYLES
 	color: #000;
 }
 
+.portfolio em {
+	color: #FFB60A;
+	font-weight: bold;
+	font-style: normal;
+  	text-decoration: none;
+  	text-transform: uppercase;
+}
+
 .portfolio .panel-body{
 	padding: 0;
 }
@@ -620,15 +628,15 @@ PORTFOLIO STYLES
 }
 
 .web .portfolio-icon {
-	background-color: #4376FC;
+	background-color: #3669A5;
 }
 
 .mobile .portfolio-icon {
-	background-color: #4376FC;
+	background-color: #3669A5;
 }
 
 .print .portfolio-icon {
-	background-color: #4376FC;
+	background-color: #3669A5;
 }
 
 .portfolio-icon div {
@@ -702,7 +710,7 @@ MODAL STYLES
 }
 
 .modal .web {
-	color: #ed78a6;
+	color: #2A5587;
 }
 
 .modal .mobile {
@@ -754,7 +762,7 @@ TIMELINE STYLES
   content: " ";
   width: 0px;
   margin-left: -1.5px;
-  background: #4376FC 
+  background: #3669A5 
 }
 .timeline > li {
   margin-bottom: 20px;
@@ -821,11 +829,36 @@ TIMELINE STYLES
   z-index: 99;
 }
 
-.badge {
+.badge-1 {
+	border: 3px solid #FFCC00 !important;
+}
+.badge-2 {
+	border: 3px solid #FFCC00 !important;
+}
+.badge-3 {
+	border: 3px solid #FFCC00 !important;
+}
+.badge-4 {
+	border: 3px solid #FFCC00 !important;
+}
+.badge-5 {
 	border: 3px solid #FFCC00 !important;
 }
 
-.line {
+
+.line-1 {
+	background: #FFCC00 
+}
+.line-2 {
+	background: #FFCC00 
+}
+.line-3 {
+	background: #FFCC00 
+}
+.line-4 {
+	background: #FFCC00 
+}
+.line-5 {
 	background: #FFCC00 
 }
 

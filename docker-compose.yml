@@ -18,29 +18,29 @@ services:
       - "3306:3306"
       
   ## The new Syfony Based MVC website
-  love-component:
-    image: ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-php:latest
+  utrecht-component:
+    image: ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-php:V.0.0.3
     build:
       context: ./
       target: api_platform_php
       cache_from:
-        - ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-website_php
-        - ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-website_nginx 
+        - ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}}-php
+        - ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-nginx 
     depends_on:
       - db-website
     volumes:
       - ./:/srv/api:rw,cached
 
-  love-nginx:
-    image: ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-nginx:latest
+  utrecht-nginx:
+    image: ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-nginx:V.0.0.2
     build:
       context: ./
       target: api_platform_nginx
       cache_from:
-        - ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-website_php
-        - ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-website_nginx
+        - ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}}-php
+        - ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-nginx
     depends_on:
-      - love-component
+      - utrecht-component
     volumes:
       - ./public:/srv/api/public:ro
     ports:

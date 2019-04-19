@@ -29,7 +29,7 @@ class HomeController extends AbstractController
 				'icon'=>'fa-lg fas fa-calendar-check',
 				'name'=>'Agendas',
 				'summary'=>'Afspraken en Beschikbaarheid',
-				'description'=>'Agendas van objecten uit overige componenten met daaraan gekoppelde afspraken en beschikbaarheid',
+				'description'=>'Met dit component kan je een agenda koppelen aan objecten uit overige componenten. Dit stelt je in staat om voor deze objecten afspraken en beschikbaarheid te tonen en bij te houden.',
 				'images'=> [
 						'images/large-images/large_agenda.gif'
 				],
@@ -45,9 +45,9 @@ class HomeController extends AbstractController
 				'icon'=>'fa-lg fas fa-user-tie',
 				'name'=>'Ambtenaren',
 				'summary'=>'Overheidsmedewerkers',
-				'description'=>'Een overzicht van medewerkers van een (semi)overheidsinstelling',
+				'description'=>'Het ambtenaren component zorgt ervoor dat je medewerkers van een (semi)overheidsinstelling kan registreren, opvragen en bijhouden.  ',
 				'images'=> [
-						'images/large-images/large_agenda.gif'
+						'images/large-images/large_ambtenaren.gif'
 				],
 				'links'=> [
 						['name'=>'online demo','url'=>'http://ambtenaren.demo.zaakonline.nl/'],
@@ -61,7 +61,7 @@ class HomeController extends AbstractController
 				'icon'=>'fa-lg fas fa-file-invoice-dollar',
 				'name'=>'Betalen',
 				'summary'=>'Component voor betalen',
-				'description'=>'Met dit component kun je betalingen regelen, via bijv. mollie of Ideal',
+				'description'=>'Dit component heeft als functie het versturen van SMS, E-Mail, Whatsapp berichten of reguliere post naar burgers, aan de hand van vooraf ingestelde sjablonen. Ook is het mogelijk om met de juiste credentials berichten in te zien.',
 				'images'=> [
 						'images/large-images/large_betalen.gif'
 				],
@@ -76,8 +76,8 @@ class HomeController extends AbstractController
 				'id'=> 5,
 				'icon'=>'fa-lg fas fa-users',
 				'name'=>'BRP', 
-				'summary'=>'Component voor de Basis Registratie Personen',
-				'description'=>'een component waarmee we het BRP simuleren, met rest api en mogelijkheden voor het genereren van testdata voor andere componenten ',
+				'summary'=>'De Basis Registratie Personen',
+				'description'=>'Veel processen binnen de (semi)overheid hebben de BRP nodig om gegevens op te vragen. Dit component is een mock waarmee we de BRP simuleren op NLX. Het bevat een rest-API en mogelijkheden om testdata voor andere componenten te genereren. ',
 				'images'=> [
 						'images/large-images/large_brp.gif'
 				],
@@ -93,9 +93,9 @@ class HomeController extends AbstractController
 				'icon'=>'fa-lg fas fa-mail-bulk',
 				'name'=>'Contact Registraties',
 				'summary'=>'Berichtenverkeer',
-				'description'=>'Het versturen van SMS, E-Mail, Post of Whatsapp berichten naar burgers aan de hand van vooringestelde sjablonen, en het inzien van dit verkeer',
+				'description'=>'Dit component heeft als functie het versturen van SMS, E-Mail, Whatsapp berichten of reguliere post naar burgers, aan de hand van vooraf ingestelde sjablonen. Ook is het mogelijk om met de juiste credentials berichten in te zien.',
 				'images'=> [
-						'images/large-images/large_agenda.gif'
+						'images/large-images/large_contactregistraties.gif'
 				],
 				'links'=> [
 						['name'=>'online demo','url'=>'http://contactregistraties.demo.zaakonline.nl/'],
@@ -109,7 +109,7 @@ class HomeController extends AbstractController
 				'icon'=>'fa-lg fas fa-person-booth',
 				'name'=>'Instemmingen',
 				'summary'=>'Verwerken instemmingen',
-				'description'=>'Het via tokens of digid vaststellen (ondertekenen) van intenties , verzoeken of documenten',
+				'description'=>'Binnen de gemeentelijke processen is het nodig om vast te stellen wat de intenties van personen of instanties zijn. Dit component maakt gebruik van tokens of digid voor het ondertekenen van intenties, verzoeken of documenten.',
 				'images'=> [
 						'images/large-images/large_instemeningen.gif'
 				],
@@ -125,7 +125,7 @@ class HomeController extends AbstractController
 				'icon'=>'fa-lg fas fa-building',
 				'name'=>'Locaties',
 				'summary'=>'Overzicht van ruimtes',
-				'description'=>'Een overzicht van te boeken ruimtes, hun kenmerken, beschikbaarheid en agendas',
+				'description'=>'Het component locaties beschrijft een geografische locatie met de daarbij horende kenmerken. Dit stelt je in staat om locaties te raadplegen en te beheren. Daarnaast is het mogelijk hier de kenmerken van de locaties te registreren en aan te passen. ',
 				'images'=> [
 						'images/large-images/large_agenda.gif'
 				],
@@ -141,9 +141,9 @@ class HomeController extends AbstractController
 				'icon'=>'fas fa-file-invoice',
 				'name'=>'Orders',
 				'summary'=>'Order verwerking',
-				'description'=>'Fullfilment component voor het verwerken van bestellingen, sterk gelieerd aan de betalen en producten en diensten componenten',
+				'description'=>'Dit is een "fullfilment" component voor het verwerken van bestellingen. Dit component gaat vaak hand in hand met de componenten betalen, producten en diensten maar dit is niet altijd noodzakelijk.',
 				'images'=> [
-						'images/large-images/large_agenda.gif'
+						'images/large-images/large_orders.gif'
 				],
 				'links'=> [
 						['name'=>'online demo','url'=>'http://orders.demo.zaakonline.nl/'],
@@ -155,11 +155,11 @@ class HomeController extends AbstractController
 		$components[] = [
 				'id'=> 10,
 				'icon'=>'fa-lg fas fa-box',
-				'name'=>'Producten en Diensten',
+				'name'=>'Producten',
 				'summary'=>'Producten en diensten catalogus',
-				'description'=>'Een producten en diensten catalogus',
+				'description'=>'Dit component is een producten- en dienstencatalogus. Je kan hier de diverse producten en diensten definiëren die te gebruiken zijn in verschillende processen. Dit component wordt vaak gebruikt met de betalen en orders componenten, maar dit is niet altijd noodzakelijk. ',
 				'images'=> [
-						'images/large-images/large_agenda.gif'
+						'images/large-images/large_producten.gif'
 				],
 				'links'=> [
 						['name'=>'online demo','url'=>'http://producten-diensten.demo.zaakonline.nl/'],
@@ -173,7 +173,7 @@ class HomeController extends AbstractController
 				'icon'=>'fa-lg fas fa-images',
 				'name'=>'Resources',
 				'summary'=>'Afbeeldingen, films en documenten',
-				'description'=>'Dit component verwerkt multimedia voor bijvoorbeeld plaatsingen op websites.',
+				'description'=>'Het gebruik van multimedia bestanden wordt gefaciliteerd binnen dit component. Het stelt je in staat om multimedia bestanden (waaronder plaatjes en filmpjes) en documenten, te gebruiken met bijvoorbeeld componenten, websites of andere apps.',
 				'images'=> [
 						'images/large-images/large_resources.gif'
 				],
@@ -189,9 +189,9 @@ class HomeController extends AbstractController
 				'icon'=>'fa-lg fas fa-user-friends',
 				'name'=>'Trouwen',
 				'summary'=>'Doorgeven huwelijk/partnerschap',
-				'description'=>'Dit component handelt de basis functionaliteiten rond het vormgeven van een huwelijk af, inclusief de keuze van beschikbare ambtenaar, locatie, soort huwelijk en de melding en aanvraag van het huwelijk',
+				'description'=>'Het trouwen component bevat alle functionaliteit die nodig is om een huwelijk of partnerschap te kunnen sluiten. Het component kan bijvoorbeeld zaken aanmaken voor zaakgericht werken maar ook de voortgang binnen het trouwproces bijhouden en tonen.',
 				'images'=> [						
-						'images/large-images/large_resources.gif'
+						'images/large-images/large_trouwen.gif'
 				],
 				'links'=> [
 						['name'=>'online demo','url'=>'http://trouwen.demo.zaakonline.nl/'],

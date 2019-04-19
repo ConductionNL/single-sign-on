@@ -37,9 +37,12 @@
                     <em>{{ item.summary }}</em>
                   </div>
                   <div>
+                  	<br/>
+                  	<p>
                     {% for link in item.links %}
-                  		<a href="{{ link.url }}">{{ link.name }}</a><br />
+                  		<a href="{{ link.url }}" target="_blank">{{ link.name }}</a><br />
                     {% endfor %}
+                  	</p>
                   </div>
                 </div>
               </div>
