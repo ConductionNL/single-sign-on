@@ -1,0 +1,98 @@
+# Default values for api.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+# Default values for api.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+docker:
+  containerRegistryBase: docker.io/conduction/
+  containerProjectName: sso
+      
+# Admin   
+php:
+  repository: docker.io/conduction/sso-php
+  tag: latest
+  pullPolicy: Always
+  replicaCount: 1
+  mercure:
+    jwtSecret: ""
+  env: prod
+  debug: '0'
+  secret: ""
+  corsAllowOrigin: ['*']
+  trustedHosts: '^(.+\.)?common-ground\.dev$|^(.+\.)?zaakonline\.nl$|^(.+\.)?conduction\.nl$|^example\.com$|^167.99.16.132|localhost'
+  trustedProxies:
+    - 10.0.0.0/8
+    - 172.16.0.0/12
+  
+nginx:
+  repository: docker.io/conduction/sso-nginx
+  tag: latest
+  pullPolicy: Always
+  replicaCount: 1
+
+postgresql:
+  enabled: false
+  imageTag: 10-alpine
+  # If bringing your own PostgreSQL, the full uri to use
+  url: postgres://requests-demo:owjrblxv35fg610a@den-bosh-postgresql-ams3-03414-do-user-4716261-0.db.ondigitalocean.com:25060/requests-demo?sslmode=require
+  postgresqlUsername: "example"
+  postgresqlPassword: "!ChangeMe!"
+  postgresqlDatabase: "api"
+  # Persistent Volume Storage configuration.
+  # ref: https://kubernetes.io/docs/user-guide/persistent-volumes
+  persistence:
+    enabled: true
+  pullPolicy: IfNotPresent
+#  image:
+#    repository: postgres
+#    tag: alpine
+
+varnish:
+  enabled: valse
+  url: sso-varnish
+  repository: docker.io/conduction/sso-varnish
+  tag: latest
+  pullPolicy: Always
+  replicaCount: 1
+
+mercure:
+  enabled: false
+  publishUrl: http://mercure/hub
+  subscribeUrl: https://mercure.example.com/hub
+  allowAnonymous: "1"
+  corsAllowedOrigins: "^https?://.*?\\.example\\.com$"
+  acmeHosts: "" # TODO: Fix the Mercure chart
+  service:
+    type: NodePort
+    port: 80
+
+ingress:
+  annotations:
+    # kubernetes.io/ingress.global-static-ip-name: chart-ip
+    # kubernetes.io/ingress.class: gce
+    # kubernetes.io/tls-acme: "true"
+  tls:
+    # Secrets must be manually created in the namespace, you can also use cert-manager.
+    # - hosts:
+      # - example.com
+      # - mercure.example.com
+  hosts:
+    api:
+      host: example.com
+      serviceName: varnish
+    mercure:
+      host: mercure.example.com
+      serviceName: mercure
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi

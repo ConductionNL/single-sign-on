@@ -18,8 +18,8 @@ services:
       - "3306:3306"
       
   ## The new Syfony Based MVC website
-  utrecht-component:
-    image: ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-php:V.0.0.3
+  sso-php:
+    image: ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-php
     build:
       context: ./
       target: api_platform_php
@@ -31,8 +31,8 @@ services:
     volumes:
       - ./:/srv/api:rw,cached
 
-  utrecht-nginx:
-    image: ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-nginx:V.0.0.2
+  sso-nginx:
+    image: ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-nginx
     build:
       context: ./
       target: api_platform_nginx
@@ -40,7 +40,7 @@ services:
         - ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}}-php
         - ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-nginx
     depends_on:
-      - utrecht-component
+      - sso-php
     volumes:
       - ./public:/srv/api/public:ro
     ports:
