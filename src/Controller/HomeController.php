@@ -9,35 +9,28 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 use App\Service\BRPService;
+use App\Service\ContactService;
+use App\Service\EmployeeService;
 
 class HomeController extends AbstractController
 { 
 	/**
 	* @Route("/")
 	*/
-	public function indexAction(Request $request, BRPService $brpService)
+    public function indexAction(Request $request, BRPService $brpService, ContactService $contactService, EmployeeService $employeeService)
 	{	
-		$personen=[];
-		$csv = fopen(dirname(__FILE__).'/../DataFixtures/Resources/personen.csv', 'r');
-		$i = 0;
-		
-		//var_dump(array_map("str_getcsv", file(dirname(__FILE__).'/Resources/Tabel32_Nationaliteitentabel.csv')));
-		while (!feof($csv)) {
-			// Lets get a line from the csv file
-			$line = fgetcsv($csv);
-			
-			// Lets skip the first line sine it contains colum names
-			if($i == 0){
-				$i++;
-				continue;
-			}
-			
-			$persoon['burgerservicenummer'] =  $line[0];
-			$persoon['voornamen'] =  htmlentities ( $line[1]);
-			$persoon['geslachtsnaam'] =  htmlentities ( $line[2].' '.$line[3]);
-			$personen[] = $persoon;
-		}	
-		//$personen = $brpService->getAll();
+        $personen = [];
+        $employees = $employeeService->getEmployees();
+        foreach($employees as $employee){
+            
+            $persoon = [];
+            $contact = $contactService->getContactOnUri($employee['contact']);
+            $persoon['burgerservicenummer'] =  $employee['id'];
+            $persoon['voornamen'] =  htmlentities ( $contact['given_name']);
+            $persoon['geslachtsnaam'] =  htmlentities ( $contact['additional_name'].' '.$contact['family_name']);
+            $personen[] = $persoon;
+        }
+	    
 		
 		//var_dump($personen);
 		$responceUrl = $request->request->get('responceUrl');
